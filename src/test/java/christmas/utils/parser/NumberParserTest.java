@@ -12,12 +12,12 @@ class NumberParserTest {
 
     @DisplayName("방문 예정일 입력으로 숫자를 입력하면 예외가 발생하지 않는다.")
     @Test
-    public void parseNumberInputValue() {
+    void parseNumberInputValue() {
         //given
         String inputValue = "1";
 
         //when
-        int number = NumberParser.parseVisitDate(inputValue);
+        int number = NumberParser.parseStringToInt(inputValue);
 
         //then
         assertEquals(number, 1);
@@ -25,12 +25,12 @@ class NumberParserTest {
 
     @DisplayName("방문 예정일 입력으로 공백이 포함된 숫자를 입력하면 예외가 발생하지 않는다.")
     @Test
-    public void parseNumberInputValueWithSpaces() {
+    void parseNumberInputValueWithSpaces() {
         //given
         String inputValue = "   1   ";
 
         //when
-        int number = NumberParser.parseVisitDate(inputValue);
+        int number = NumberParser.parseStringToInt(inputValue);
 
         //then
         assertEquals(number, 1);
@@ -44,7 +44,7 @@ class NumberParserTest {
 
         //when
         //then
-        Assertions.assertThatThrownBy(() -> NumberParser.parseVisitDate(inputValue))
+        Assertions.assertThatThrownBy(() -> NumberParser.parseStringToInt(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(NumberParser.ILLEGAL_DATE_EXCEPTION_MESSAGE);
     }
