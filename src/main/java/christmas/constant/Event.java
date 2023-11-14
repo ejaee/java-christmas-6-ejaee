@@ -36,7 +36,7 @@ public enum Event {
     }
 
     public static Event getSpecialEvent(final VisitDate visitDate) {
-        if (EventCalendar.isPossibleSpecialEvent(visitDate, SPECIAL.getStandardKeyWord())) {
+        if (EventCalendar.isEvent(visitDate, SPECIAL.getStandardKeyWord())) {
             return SPECIAL;
         }
         return NONE;
