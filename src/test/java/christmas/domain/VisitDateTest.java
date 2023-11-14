@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import christmas.domain.order.VisitDate;
-import christmas.utils.parser.NumberParser;
+import christmas.view.ErrorMessage;
 import java.time.DayOfWeek;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ class VisitDateTest {
         //then
         assertThatThrownBy(() -> VisitDate.from(inputDay))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(NumberParser.ILLEGAL_DATE_EXCEPTION_MESSAGE);
+                .hasMessage(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage());
     }
 
     @DisplayName("날짜를 통해 무슨 요일인지 알 수 있다.")

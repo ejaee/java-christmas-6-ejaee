@@ -1,5 +1,6 @@
 package christmas.utils;
 
+import christmas.view.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ class EmptyValidatorTest {
         //then
         Assertions.assertThatThrownBy(() -> EmptyValidator.validateBlank(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(EmptyValidator.INPUT_BLANK_MESSAGE);
+                .hasMessage(ErrorMessage.INPUT_BLANK_ERROR_MESSAGE.getMessage());
     }
 
     @DisplayName("입력 값이 null 이면 예외가 발생한다.")
@@ -31,6 +32,6 @@ class EmptyValidatorTest {
         //then
         Assertions.assertThatThrownBy(() -> EmptyValidator.validateBlank(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(EmptyValidator.INPUT_BLANK_MESSAGE);
+                .hasMessage(ErrorMessage.INPUT_BLANK_ERROR_MESSAGE.getMessage());
     }
 }

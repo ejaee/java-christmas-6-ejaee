@@ -2,6 +2,7 @@ package christmas.utils.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import christmas.view.ErrorMessage;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,6 +47,6 @@ class NumberParserTest {
         //then
         Assertions.assertThatThrownBy(() -> NumberParser.parseStringToInt(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(NumberParser.ILLEGAL_DATE_EXCEPTION_MESSAGE);
+                .hasMessage(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage());
     }
 }

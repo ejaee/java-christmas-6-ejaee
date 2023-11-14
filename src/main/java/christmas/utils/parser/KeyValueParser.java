@@ -2,13 +2,13 @@ package christmas.utils.parser;
 
 import christmas.utils.EmptyValidator;
 
+import christmas.view.ErrorMessage;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KeyValueParser {
 
-    public static final String ILLEGAL_ORDER_EXCEPTION_MESSAGE = "유효하지 않은 주문입니다. 다시 입력해 주세요.";
     public static final String PAIR_SEPARATOR = ",";
     public static final String KEY_VALUE_SEPARATOR = "-";
 
@@ -41,7 +41,7 @@ public class KeyValueParser {
 
     private static void validateDuplicatedKey(Map<String, Long> parsedMap, String key) {
         if (isDuplicated(parsedMap, key)) {
-            throw new IllegalArgumentException(ILLEGAL_ORDER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class KeyValueParser {
 
     private static void validatePairLength(String[] pair) {
         if (pair.length < 2) {
-            throw new IllegalArgumentException(ILLEGAL_ORDER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -59,7 +59,7 @@ public class KeyValueParser {
         try {
             return Long.parseLong(value.trim());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ILLEGAL_ORDER_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
         }
     }
 }

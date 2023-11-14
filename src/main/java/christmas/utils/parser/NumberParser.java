@@ -1,12 +1,11 @@
 package christmas.utils.parser;
 
 import christmas.utils.EmptyValidator;
+import christmas.view.ErrorMessage;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
 public class NumberParser {
-
-    public static final String ILLEGAL_DATE_EXCEPTION_MESSAGE = "유효하지 않은 날짜입니다. 다시 입력해 주세요.";
 
     public static int parseStringToInt(final String inputDate) {
         EmptyValidator.validateBlank(inputDate);
@@ -19,9 +18,9 @@ public class NumberParser {
                     .map(String::trim)
                     .map(changeNumber)
                     .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException(ILLEGAL_DATE_EXCEPTION_MESSAGE));
+                    .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage()));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException(ILLEGAL_DATE_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage());
         }
     }
 }

@@ -1,7 +1,7 @@
-package christmas.domain;
+package christmas.domain.order;
 
-import christmas.Constants;
-import christmas.utils.parser.NumberParser;
+import christmas.constant.Constants;
+import christmas.view.ErrorMessage;
 import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ public class VisitDate {
         try {
             this.localDate = LocalDate.of(Constants.YEAR, Constants.MONTH, day);
         } catch (DateTimeException e) {
-            throw new IllegalArgumentException(NumberParser.ILLEGAL_DATE_EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage());
         }
     }
 

@@ -3,6 +3,7 @@ package christmas.utils.parser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import christmas.view.ErrorMessage;
 import java.util.Map;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -43,7 +44,7 @@ class KeyValueParserTest {
         //then
         Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToMap(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
+                .hasMessage(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
     }
 
     @DisplayName("key 값이 중복될 경우 예외가 발생한다.")
@@ -56,7 +57,7 @@ class KeyValueParserTest {
         //then
         Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToMap(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
+                .hasMessage(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
     }
 
 }

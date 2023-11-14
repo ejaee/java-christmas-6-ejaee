@@ -1,5 +1,7 @@
 package christmas.domain.order;
 
+import christmas.view.ErrorMessage;
+
 public enum MenuName {
 
     MUSHROOM_SOUP("에피타이저", "양송이수프", 6_000),
@@ -33,7 +35,7 @@ public enum MenuName {
                 return menuName;
             }
         }
-        throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
     }
 
     public String getCategory() {
