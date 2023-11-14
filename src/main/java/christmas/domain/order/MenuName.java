@@ -1,6 +1,6 @@
 package christmas.domain.order;
 
-public enum MenuItem {
+public enum MenuName {
 
     MUSHROOM_SOUP("에피타이저", "양송이수프", 6_000),
     TAPAS("에피타이저", "타파스", 5_500),
@@ -21,16 +21,16 @@ public enum MenuItem {
     private final String name;
     private final long price;
 
-    MenuItem(final String category, final String name, final long price) {
+    MenuName(final String category, final String name, final long price) {
         this.category = category;
         this.name = name;
         this.price = price;
     }
 
-    public static MenuItem findByName(final String name) {
-        for (MenuItem menuItem : MenuItem.values()) {
-            if (menuItem.getName().equals(name)) {
-                return menuItem;
+    public static MenuName findByName(final String name) {
+        for (MenuName menuName : MenuName.values()) {
+            if (menuName.getName().equals(name)) {
+                return menuName;
             }
         }
         throw new IllegalArgumentException("유효하지 않은 주문입니다. 다시 입력해 주세요.");

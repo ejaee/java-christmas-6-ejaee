@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class MenuItemTest {
+class MenuNameTest {
 
 
     @DisplayName("메뉴판에 있는 메뉴로 객체를 생성할 수 있다.")
@@ -17,22 +17,22 @@ class MenuItemTest {
         String name = "타파스";
 
         // when
-        MenuItem menuItem = MenuItem.findByName(name);
+        MenuName menuName = MenuName.findByName(name);
 
         // then
-        assertThat(menuItem).isNotNull();
+        assertThat(menuName).isNotNull();
     }
 
     @DisplayName("생성된 객체의 정보를 반환할 수 있다.")
     @Test
     void getMenuInfo() {
         // given
-        MenuItem menuItem = MenuItem.findByName("제로콜라");
+        MenuName menuName = MenuName.findByName("제로콜라");
 
         // when
-        String category = menuItem.getCategory();
-        String name = menuItem.getName();
-        long price = menuItem.getPrice();
+        String category = menuName.getCategory();
+        String name = menuName.getName();
+        long price = menuName.getPrice();
 
         // then
         assertEquals("음료", category);
@@ -49,7 +49,7 @@ class MenuItemTest {
 
         // when
         // then
-        assertThatThrownBy(() -> MenuItem.findByName(name))
+        assertThatThrownBy(() -> MenuName.findByName(name))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
