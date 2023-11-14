@@ -19,17 +19,17 @@ class KeyValueParserTest {
         String inputValue = "칠면조구이-1,에그타르트-1,초코케이크-2,제로콜라-1";
 
         //when
-        Map<String, Integer> parsedValue = KeyValueParser.parseStringToInt(inputValue);
+        Map<String, Long> parsedValue = KeyValueParser.parseStringToLong(inputValue);
 
         //then
         assertEquals(4, parsedValue.size());
 
         assertTrue(parsedValue.entrySet().stream()
                 .allMatch(entry ->
-                        entry.getKey().equals("칠면조구이") && entry.getValue().equals(1) ||
-                                entry.getKey().equals("에그타르트") && entry.getValue().equals(1) ||
-                                entry.getKey().equals("초코케이크") && entry.getValue().equals(2) ||
-                                entry.getKey().equals("제로콜라") && entry.getValue().equals(1)
+                        entry.getKey().equals("칠면조구이") && entry.getValue().equals(1L) ||
+                                entry.getKey().equals("에그타르트") && entry.getValue().equals(1L) ||
+                                entry.getKey().equals("초코케이크") && entry.getValue().equals(2L) ||
+                                entry.getKey().equals("제로콜라") && entry.getValue().equals(1L)
                 ));
     }
 
@@ -41,7 +41,7 @@ class KeyValueParserTest {
 
         //when
         //then
-        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToInt(inputValue))
+        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToLong(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
     }
@@ -54,7 +54,7 @@ class KeyValueParserTest {
 
         //when
         //then
-        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToInt(inputValue))
+        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToLong(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
     }

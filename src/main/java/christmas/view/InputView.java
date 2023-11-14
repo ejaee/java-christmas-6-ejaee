@@ -1,7 +1,7 @@
 package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
-import christmas.Constants;
+import christmas.constant.Constants;
 
 public class InputView {
 
@@ -13,7 +13,7 @@ public class InputView {
         return input();
     }
 
-    public String inputOrder() {
+    public String inputOrderMenu() {
         System.out.println(ORDER_REQUEST_MESSAGE);
         return input();
     }

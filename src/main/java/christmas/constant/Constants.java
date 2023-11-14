@@ -1,4 +1,4 @@
-package christmas;
+package christmas.constant;
 
 public class Constants {
     public static final int YEAR = 2023;

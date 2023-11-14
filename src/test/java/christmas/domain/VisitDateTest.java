@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import christmas.domain.order.VisitDate;
 import christmas.utils.parser.NumberParser;
 import java.time.DayOfWeek;
 import org.junit.jupiter.api.DisplayName;

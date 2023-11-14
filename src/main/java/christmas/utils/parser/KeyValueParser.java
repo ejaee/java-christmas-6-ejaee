@@ -12,13 +12,13 @@ public class KeyValueParser {
     public static final String PAIR_SEPARATOR = ",";
     public static final String KEY_VALUE_SEPARATOR = "-";
 
-    public static Map<String, Integer> parseStringToInt(final String inputOrder) {
+    public static Map<String, Long> parseStringToLong(final String inputOrder) {
         EmptyValidator.validateBlank(inputOrder);
         return parse(inputOrder);
     }
 
-    private static Map<String, Integer> parse(final String inputOrder) {
-        Map<String, Integer> parsedMap = new HashMap<>();
+    private static Map<String, Long> parse(final String inputOrder) {
+        Map<String, Long> parsedMap = new HashMap<>();
 
         Arrays.stream(inputOrder.split(PAIR_SEPARATOR, -1))
                 .map(pair -> pair.split(KEY_VALUE_SEPARATOR, -1))
@@ -27,25 +27,25 @@ public class KeyValueParser {
         return parsedMap;
     }
 
-    private static void processPair(Map<String, Integer> parsedMap, String[] pair) {
+    private static void processPair(Map<String, Long> parsedMap, String[] pair) {
         String key = pair[0].trim();
         validatePair(parsedMap, pair, key);
-        int value = parseInt(pair[1]);
+        long value = parseLong(pair[1]);
         parsedMap.put(key, value);
     }
 
-    private static void validatePair(Map<String, Integer> parsedMap, String[] pair, String key) {
+    private static void validatePair(Map<String, Long> parsedMap, String[] pair, String key) {
         validatePairLength(pair);
         validateDuplicatedKey(parsedMap, key);
     }
 
-    private static void validateDuplicatedKey(Map<String, Integer> parsedMap, String key) {
+    private static void validateDuplicatedKey(Map<String, Long> parsedMap, String key) {
         if (isDuplicated(parsedMap, key)) {
             throw new IllegalArgumentException(ILLEGAL_ORDER_EXCEPTION_MESSAGE);
         }
     }
 
-    private static boolean isDuplicated(Map<String, Integer> parsedMap, String key) {
+    private static boolean isDuplicated(Map<String, Long> parsedMap, String key) {
         return parsedMap.containsKey(key);
     }
 
@@ -55,9 +55,9 @@ public class KeyValueParser {
         }
     }
 
-    private static int parseInt(String value) {
+    private static long parseLong(String value) {
         try {
-            return Integer.parseInt(value.trim());
+            return Long.parseLong(value.trim());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ILLEGAL_ORDER_EXCEPTION_MESSAGE);
         }
