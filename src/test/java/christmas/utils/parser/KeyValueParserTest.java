@@ -19,7 +19,7 @@ class KeyValueParserTest {
         String inputValue = "칠면조구이-1,에그타르트-1,초코케이크-2,제로콜라-1";
 
         //when
-        Map<String, Long> parsedValue = KeyValueParser.parseStringToLong(inputValue);
+        Map<String, Long> parsedValue = KeyValueParser.parseStringToMap(inputValue);
 
         //then
         assertEquals(4, parsedValue.size());
@@ -41,7 +41,7 @@ class KeyValueParserTest {
 
         //when
         //then
-        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToLong(inputValue))
+        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToMap(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
     }
@@ -54,7 +54,7 @@ class KeyValueParserTest {
 
         //when
         //then
-        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToLong(inputValue))
+        Assertions.assertThatThrownBy(() -> KeyValueParser.parseStringToMap(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(KeyValueParser.ILLEGAL_ORDER_EXCEPTION_MESSAGE);
     }

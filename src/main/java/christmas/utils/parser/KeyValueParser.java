@@ -12,7 +12,7 @@ public class KeyValueParser {
     public static final String PAIR_SEPARATOR = ",";
     public static final String KEY_VALUE_SEPARATOR = "-";
 
-    public static Map<String, Long> parseStringToLong(final String inputOrder) {
+    public static Map<String, Long> parseStringToMap(final String inputOrder) {
         EmptyValidator.validateBlank(inputOrder);
         return parse(inputOrder);
     }
