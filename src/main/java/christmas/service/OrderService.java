@@ -6,6 +6,7 @@ import christmas.domain.order.Order;
 import christmas.domain.order.Reservation;
 import christmas.domain.order.VisitDate;
 import christmas.utils.parser.KeyValueParser;
+import christmas.utils.parser.NumberParser;
 import christmas.view.ErrorMessage;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,6 +16,11 @@ public class OrderService {
     private static final String BEVERAGE_CATEGORY = "음료";
     public static final int MEX_ORDER_COUNT = 20;
 
+    public VisitDate generateVisitDate(final String inputDay) {
+        int number = NumberParser.parseStringToInt(inputDay);
+        return VisitDate.from(number);
+    }
+
     public Order generateOrder(final String inputValue) {
         Map<String, Long> menuInfo = KeyValueParser.parseStringToMap(inputValue);
         Map<MenuName, MenuCount> order = putMenuInfo(menuInfo);
@@ -23,12 +29,12 @@ public class OrderService {
         return new Order(order);
     }
 
-    public long getOrderCost(final Order order) {
-        return order.getTotalOrderCost();
-    }
-
     public Reservation generateReservation(final VisitDate visitDate, final Order order) {
         return new Reservation(visitDate, order);
+    }
+
+    public long getOrderCost(final Reservation reservation) {
+        return reservation.order().getTotalOrderCost();
     }
 
     private static Map<MenuName, MenuCount> putMenuInfo(Map<String, Long> menuInfo) {
