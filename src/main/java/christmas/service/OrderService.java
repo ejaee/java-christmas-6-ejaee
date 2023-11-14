@@ -3,6 +3,8 @@ package christmas.service;
 import christmas.domain.order.MenuCount;
 import christmas.domain.order.MenuName;
 import christmas.domain.order.Order;
+import christmas.domain.order.Reservation;
+import christmas.domain.order.VisitDate;
 import christmas.utils.parser.KeyValueParser;
 import christmas.view.ErrorMessage;
 import java.util.LinkedHashMap;
@@ -23,6 +25,10 @@ public class OrderService {
 
     public long getOrderCost(final Order order) {
         return order.getTotalOrderCost();
+    }
+
+    public Reservation generateReservation(final VisitDate visitDate, final Order order) {
+        return new Reservation(visitDate, order);
     }
 
     private static Map<MenuName, MenuCount> putMenuInfo(Map<String, Long> menuInfo) {
