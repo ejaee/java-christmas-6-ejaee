@@ -33,8 +33,8 @@ public class OrderService {
         return new Reservation(visitDate, order);
     }
 
-    public long getOrderCost(final Reservation reservation) {
-        return reservation.order().getTotalOrderCost();
+    public long getOrderCost(final Order order) {
+        return order.getTotalOrderCost();
     }
 
     private static Map<MenuName, MenuCount> putMenuInfo(Map<String, Long> menuInfo) {
