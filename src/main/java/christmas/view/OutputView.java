@@ -3,7 +3,6 @@ package christmas.view;
 import christmas.constant.Badge;
 import christmas.constant.Constants;
 import christmas.constant.Gift;
-import christmas.domain.benefit.Benefit;
 import christmas.domain.benefit.Benefits;
 import christmas.domain.order.Order;
 import christmas.domain.order.VisitDate;
@@ -36,13 +35,19 @@ public class OutputView {
 
     private void printBenefit(Benefits benefits) {
         benefits.benefits().stream()
-                .map(Benefit::toString)
+                .map(benefit -> {
+                    if (benefits.hasNotBenefit()) {
+                        return benefit.name();
+                    } else {
+                        return benefit.toString();
+                    }
+                })
                 .forEach(this::print);
 
-        printEventInfo(benefits);
+        printEventInfoIfNoBenefit(benefits);
     }
 
-    private void printEventInfo(Benefits benefits) {
+    private void printEventInfoIfNoBenefit(Benefits benefits) {
         if (benefits.hasNotBenefit()) {
             print(Message.EVENT_INFO_PREFIX.getMessage() + Message.EVENT_INFO_MESSAGE.getMessage());
         }

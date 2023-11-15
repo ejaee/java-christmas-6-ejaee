@@ -50,7 +50,7 @@ class BadgeTest {
     @Test
     void getNoneBadgeByTotalBenefitAmount() {
         // given
-        final long totalBenefitAmount = Constants.STAR_BADGE_BASE_AMOUNT - 1;
+        final long totalBenefitAmount = Constants.STAR_BADGE_BASE_AMOUNT + 1;
 
         // when
         Badge badge = Badge.getBadgeByTotalBenefitAmount(totalBenefitAmount);

@@ -17,11 +17,11 @@ public enum Badge {
     }
 
     public static Badge getBadgeByTotalBenefitAmount(final long totalBenefitAmount) {
-        if (totalBenefitAmount >= Constants.SANTA_BADGE_BASE_AMOUNT) {
+        if (totalBenefitAmount <= Constants.SANTA_BADGE_BASE_AMOUNT) {
             return SANTA;
-        } else if (totalBenefitAmount >= Constants.TREE_BADGE_BASE_AMOUNT) {
+        } else if (totalBenefitAmount <= Constants.TREE_BADGE_BASE_AMOUNT) {
             return TREE;
-        } else if (totalBenefitAmount >= Constants.STAR_BADGE_BASE_AMOUNT) {
+        } else if (totalBenefitAmount <= Constants.STAR_BADGE_BASE_AMOUNT) {
             return STAR;
         }
         return NONE;
