@@ -56,7 +56,7 @@ class OrderServiceTest {
         // then
         assertThatThrownBy(() -> orderService.generateOrder(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
+                .hasMessage(ErrorMessage.ONLY_BEVERAGE_MENU_ERROR_MESSAGE.getMessage());
     }
 
     @DisplayName("주문 메뉴 총 수량이 허용치를 초과하면 예외를 발생한다.")
@@ -69,6 +69,6 @@ class OrderServiceTest {
         // then
         assertThatThrownBy(() -> orderService.generateOrder(inputValue))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
+                .hasMessage(ErrorMessage.EXCEEDED_MENU_COUNT_ERROR_MESSAGE.getMessage());
     }
 }

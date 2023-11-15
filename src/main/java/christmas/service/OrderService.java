@@ -49,7 +49,7 @@ public class OrderService {
 
     private void validateMenuCategory(Map<MenuName, MenuCount> order) {
         if (isOnlyBeverages(order)) {
-            throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.ONLY_BEVERAGE_MENU_ERROR_MESSAGE.getMessage());
         }
     }
 
@@ -61,7 +61,7 @@ public class OrderService {
     private void validateMenuTotalCount(Map<MenuName, MenuCount> order) {
         long totalMenuCount = getTotalMenuCount(order);
         if (totalMenuCount > Constants.MEX_ORDER_COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.EXCEEDED_MENU_COUNT_ERROR_MESSAGE.getMessage());
         }
     }
 
