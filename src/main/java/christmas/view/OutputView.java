@@ -38,6 +38,14 @@ public class OutputView {
         benefits.benefits().stream()
                 .map(Benefit::toString)
                 .forEach(this::print);
+
+        printEventInfo(benefits);
+    }
+
+    private void printEventInfo(Benefits benefits) {
+        if (benefits.hasNotBenefit()) {
+            print(Message.EVENT_INFO_PREFIX.getMessage() + Message.EVENT_INFO_MESSAGE.getMessage());
+        }
     }
 
     public void printGiftMenu(final Gift gift) {

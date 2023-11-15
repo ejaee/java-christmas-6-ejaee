@@ -26,5 +26,4 @@ public class Constants {
     public static final String NEW_LINE_CHARACTER = "\n";
 
     public static final String BENEFIT_INFO_TEMPLATE = ": %,d원";
-
 }

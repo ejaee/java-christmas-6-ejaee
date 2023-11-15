@@ -18,7 +18,7 @@ class BenefitsTest {
         Benefit special = new Benefit("특별 할인", -1_000);
         Benefit gift = new Benefit("증정 이벤트", -25_000);
 
-        benefits = new Benefits(List.of(christmas, weekday, special, gift));
+        benefits = new Benefits(List.of(christmas, weekday, special, gift), false);
     }
 
     @DisplayName("Benefits 의 총 혜택 금액을 반환한다")

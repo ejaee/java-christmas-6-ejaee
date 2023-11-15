@@ -32,11 +32,11 @@ public class BenefitsGenerator {
         List<Benefit> benefitByType = calculateBenefitsForPolicies(reservation, discountPolicies);
         if (isNoBenefit(benefitByType)) {
             Benefit noBenefit = new Benefit(Event.NONE.getEventName(), Event.NONE.getDiscountStandardPrice());
-            return new Benefits(List.of(noBenefit));
+            return new Benefits(List.of(noBenefit), true);
         }
 
         removeNoBenefit(benefitByType);
-        return new Benefits(benefitByType);
+        return new Benefits(benefitByType, false);
     }
 
     private void removeNoBenefit(List<Benefit> benefitByType) {
