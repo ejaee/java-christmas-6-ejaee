@@ -1,6 +1,6 @@
 package christmas.domain.benefit;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,5 +32,4 @@ class BenefitsTest {
         // then
         assertEquals(-31_246, totalDiscount);
     }
-
 }
