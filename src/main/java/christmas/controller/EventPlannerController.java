@@ -27,21 +27,37 @@ public class EventPlannerController {
     }
 
     public void run() {
-        outputView.printStartMessage();
+        printStart();
 
         Reservation reservation = inputReservation();
-        outputView.printVisitDate(reservation.visitDate());
-        outputView.printOrderMenu(reservation.order());
-        outputView.printTotalOrderAmountBeforeDiscount(reservation.order().getTotalOrderCostBeforeDiscount());
+        printReservationInfo(reservation);
 
         Benefits benefits = eventService.calculateBenefits(reservation);
+        printBenefitsInfo(benefits, reservation);
+
+        printBadge(benefits);
+    }
+
+    private void printBadge(Benefits benefits) {
+        outputView.printBadge(badgeService.generateBadge(benefits.getTotalDiscount()));
+    }
+
+    private void printBenefitsInfo(Benefits benefits, Reservation reservation) {
         outputView.printGiftMenu(eventService.getGift(benefits));
         outputView.printBenefits(benefits);
         outputView.printTotalBenefitAmount(benefits.getTotalDiscount());
         outputView.printTotalOrderAmountAfterDiscount(
                 eventService.getTotalOrderCostAfterDiscount(reservation, benefits));
+    }
 
-        outputView.printBadge(badgeService.generateBadge(benefits.getTotalDiscount()));
+    private void printReservationInfo(Reservation reservation) {
+        outputView.printVisitDate(reservation.visitDate());
+        outputView.printOrderMenu(reservation.order());
+        outputView.printTotalOrderAmountBeforeDiscount(reservation.order().getTotalOrderCostBeforeDiscount());
+    }
+
+    private void printStart() {
+        outputView.printStartMessage();
     }
 
     private Reservation inputReservation() {
