@@ -18,7 +18,8 @@ public class NumberParser {
                     .map(String::trim)
                     .map(changeNumber)
                     .findFirst()
-                    .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage()));
+                    .orElseThrow(
+                            () -> new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage()));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_DATE_ERROR_MESSAGE.getMessage());
         }

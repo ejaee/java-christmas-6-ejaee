@@ -25,7 +25,6 @@ class EventServiceTest {
         Order secondOrder = orderService.generateOrder("타파스-1,제로콜라-1 ");
         firstReservation = orderService.generateReservation(visitDate, firstOrder);
         secondReservation = orderService.generateReservation(visitDate, secondOrder);
-
     }
 
     @DisplayName("Reservation 을 통해 Benefit을 반환한다")

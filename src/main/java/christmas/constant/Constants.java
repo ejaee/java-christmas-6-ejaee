@@ -15,4 +15,16 @@ public class Constants {
     public static final long TREE_BADGE_BASE_AMOUNT = 10_000L;
     public static final long STAR_BADGE_BASE_AMOUNT = 5_000L;
 
+    public static final String PAIR_SEPARATOR = ",";
+    public static final String KEY_VALUE_SEPARATOR = "-";
+
+    public static final String BEVERAGE_CATEGORY = "음료";
+    public static final int MEX_ORDER_COUNT = 20;
+
+    public static final String DATE_PATTERN = "MM월 d일";
+    public static final String ORDER_MENU_TEMPLATE = "%s %s개";
+    public static final String NEW_LINE_CHARACTER = "\n";
+
+    public static final String BENEFIT_INFO_TEMPLATE = ": %,d원";
+
 }

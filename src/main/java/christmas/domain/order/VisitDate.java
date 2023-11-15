@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 
 public class VisitDate {
 
-    private static final String DATE_PATTERN = "MM월 d일";
     private final LocalDate localDate;
 
     public VisitDate(final int day) {
@@ -34,6 +33,6 @@ public class VisitDate {
 
     @Override
     public String toString() {
-        return localDate.format(DateTimeFormatter.ofPattern(DATE_PATTERN));
+        return localDate.format(DateTimeFormatter.ofPattern(Constants.DATE_PATTERN));
     }
 }

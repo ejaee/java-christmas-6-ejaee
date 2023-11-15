@@ -1,16 +1,13 @@
 package christmas.utils.parser;
 
+import christmas.constant.Constants;
 import christmas.utils.EmptyValidator;
-
 import christmas.view.ErrorMessage;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class KeyValueParser {
-
-    public static final String PAIR_SEPARATOR = ",";
-    public static final String KEY_VALUE_SEPARATOR = "-";
 
     public static Map<String, Long> parseStringToMap(final String inputOrder) {
         EmptyValidator.validateBlank(inputOrder);
@@ -20,8 +17,8 @@ public class KeyValueParser {
     private static Map<String, Long> parse(final String inputOrder) {
         Map<String, Long> parsedMap = new HashMap<>();
 
-        Arrays.stream(inputOrder.split(PAIR_SEPARATOR, -1))
-                .map(pair -> pair.split(KEY_VALUE_SEPARATOR, -1))
+        Arrays.stream(inputOrder.split(Constants.PAIR_SEPARATOR, -1))
+                .map(pair -> pair.split(Constants.KEY_VALUE_SEPARATOR, -1))
                 .forEach(pair -> processPair(parsedMap, pair));
 
         return parsedMap;

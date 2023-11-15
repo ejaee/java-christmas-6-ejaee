@@ -1,5 +1,6 @@
 package christmas.service;
 
+import christmas.constant.Constants;
 import christmas.domain.order.MenuCount;
 import christmas.domain.order.MenuName;
 import christmas.domain.order.Order;
@@ -12,9 +13,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class OrderService {
-
-    private static final String BEVERAGE_CATEGORY = "음료";
-    public static final int MEX_ORDER_COUNT = 20;
 
     public VisitDate generateVisitDate(final String inputDay) {
         int number = NumberParser.parseStringToInt(inputDay);
@@ -57,12 +55,12 @@ public class OrderService {
 
     private boolean isOnlyBeverages(Map<MenuName, MenuCount> order) {
         return order.keySet().stream()
-                .allMatch(item -> item.getCategory().equals(BEVERAGE_CATEGORY));
+                .allMatch(item -> item.getCategory().equals(Constants.BEVERAGE_CATEGORY));
     }
 
     private void validateMenuTotalCount(Map<MenuName, MenuCount> order) {
         long totalMenuCount = getTotalMenuCount(order);
-        if (totalMenuCount > MEX_ORDER_COUNT) {
+        if (totalMenuCount > Constants.MEX_ORDER_COUNT) {
             throw new IllegalArgumentException(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
         }
     }

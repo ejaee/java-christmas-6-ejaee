@@ -54,6 +54,4 @@ class MenuNameTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.MENU_ERROR_MESSAGE.getMessage());
     }
-
-
 }

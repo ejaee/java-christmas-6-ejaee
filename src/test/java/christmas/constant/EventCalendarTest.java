@@ -1,6 +1,7 @@
 package christmas.constant;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import christmas.domain.order.VisitDate;
 import org.junit.jupiter.api.DisplayName;
@@ -21,5 +22,4 @@ class EventCalendarTest {
         assertTrue(EventCalendar.isEvent(availableDate, standardKeyWord));
         assertFalse(EventCalendar.isEvent(impossibleDate, standardKeyWord));
     }
-
 }
