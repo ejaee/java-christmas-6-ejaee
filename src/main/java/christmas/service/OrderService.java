@@ -33,10 +33,6 @@ public class OrderService {
         return new Reservation(visitDate, order);
     }
 
-    public long getOrderCost(final Order order) {
-        return order.getTotalOrderCost();
-    }
-
     private static Map<MenuName, MenuCount> putMenuInfo(Map<String, Long> menuInfo) {
         Map<MenuName, MenuCount> order = new LinkedHashMap<>();
 

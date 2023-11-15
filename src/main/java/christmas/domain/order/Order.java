@@ -7,7 +7,7 @@ public record Order(Map<MenuName, MenuCount> order) {
 
     private static final String ORDER_MENU_TEMPLATE = "%s %s개";
 
-    public long getTotalOrderCost() {
+    public long getTotalOrderCostBeforeDiscount() {
         return order.entrySet().stream()
                 .mapToLong(entry -> entry.getKey().getPrice() * entry.getValue().count())
                 .sum();

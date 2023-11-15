@@ -17,7 +17,7 @@ public class GiftEventPolicy implements EventPolicy {
 
     @Override
     public Benefit calculateBenefit(final Reservation reservation) {
-        long totalOrderCost = reservation.order().getTotalOrderCost();
+        long totalOrderCost = reservation.order().getTotalOrderCostBeforeDiscount();
         Gift gift = getGift(totalOrderCost);
 
         long discount = getDiscount(gift);

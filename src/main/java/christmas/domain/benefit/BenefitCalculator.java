@@ -16,7 +16,7 @@ public class BenefitCalculator {
     }
 
     public Benefit calculateBenefit(final Reservation reservation, final EventPolicy eventPolicy) {
-        long totalOrderCost = reservation.order().getTotalOrderCost();
+        long totalOrderCost = reservation.order().getTotalOrderCostBeforeDiscount();
 
         if (totalOrderCost < Constants.EVENT_MINIMUM_CONDITION_PRICE) {
             return new Benefit(Event.NONE.getEventName(), Event.NONE.getDiscountStandardPrice());

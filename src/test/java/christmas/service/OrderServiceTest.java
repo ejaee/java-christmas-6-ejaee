@@ -40,7 +40,7 @@ class OrderServiceTest {
         Order order = orderService.generateOrder(inputValue);
 
         // when
-        long orderCost = orderService.getOrderCost(order);
+        long orderCost = order.getTotalOrderCostBeforeDiscount();
 
         // then
         Assertions.assertEquals(33_000, orderCost);

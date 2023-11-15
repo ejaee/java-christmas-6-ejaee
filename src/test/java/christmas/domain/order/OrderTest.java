@@ -16,7 +16,7 @@ class OrderTest {
 
         // when
         Order order = orderService.generateOrder("제로콜라-1,티본스테이크-2");
-        long totalOrderCost = order.getTotalOrderCost();
+        long totalOrderCost = order.getTotalOrderCostBeforeDiscount();
 
         // then
         Assertions.assertEquals(113_000, totalOrderCost);

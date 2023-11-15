@@ -10,4 +10,9 @@ public record MenuCount(long count) {
         }
         return new MenuCount(count);
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(count);
+    }
 }
